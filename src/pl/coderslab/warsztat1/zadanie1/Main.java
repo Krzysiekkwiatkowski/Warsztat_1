@@ -1,48 +1,48 @@
 package pl.coderslab.warsztat1.zadanie1;
 
-import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        guess();
-
+        int random = randomNumber();
+        int guess = guess();
+        while (!check(random, guess)) {
+            guess = guess();
+        }
     }
 
-    static String guess() {
+    private static boolean check(int random, int guess) {
+        if (guess < random) {
+            System.out.println("Za mało");
+            return false;
+        } else if (guess > random) {
+            System.out.println("Za dużo");
+            return false;
+        } else {
+            System.out.println("Zgadłeś!");
+            return true;
+        }
+    }
 
-        String result = "Pudło";
-        int number = (int) (Math.random() * 100);
+    private static int guess() {
         Scanner scanner = new Scanner(System.in);
-        int guess = -1;
-        while (result.equals("Pudło")) {
-            System.out.println("Zgadnij liczbę");
+        System.out.println("Wprowadź liczbę");
+        while (scanner.hasNext()) {
             try {
-                guess = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("To nie jest liczba");
-                result = "Pudło";
-                scanner.next();
+                int quess = Integer.parseInt(scanner.next());
+                return quess;
+            } catch (NumberFormatException e) {
+                System.out.println("To nie jest liczba, wprowadź poprawną wartość");
                 continue;
             }
-            if (number == guess) {
-                System.out.println("Zgadłeś");
-                result = "Zgadłeś";
-            } else {
-                if (guess < number){
-                    System.out.println("Za mało");
-                    result = "Pudło";
-                }
-                if (guess > number){
-                    System.out.println("Za dużo");
-                    result = "Pudło";
-                }
-            }
-
-
         }
-        return result;
+        return 0;
+    }
+
+    private static int randomNumber() {
+        Random random = new Random();
+        return random.nextInt(100) + 1;
     }
 }
