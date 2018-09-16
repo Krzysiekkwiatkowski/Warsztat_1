@@ -1,0 +1,6 @@
+This project include 5 exercises.
+1. It's a game, where program radomly choose a number from 1 to 100, and you need to guess it. If you choose wrong number, it tells you if it's lower or higher than your guess.
+2. It's a lotto simulator. You need to pick 6 numbers from 1 to 49, and progam will tell you if you guess 3 or more.
+3. It's a game, where you think of number from 1 to 1000, program is picking some numbers and you write if the number is correct. If not, if it's lower or higher than last one.
+4. It's a dice simulator. You need to input text like ("3D6+6"). Program will give you random number from this string, which means (3 - number of throws, D6 - normal six-sided game dice and +6 means +6 added to result).
+5. It's a popular words finder from a web page. You choose http address and html tag. Program saves 2 files, one with all words longer than 2 letter, and second is this words list without specified words.
